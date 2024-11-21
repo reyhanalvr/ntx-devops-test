@@ -16,5 +16,7 @@ jobs:
       - name: Build image 
         run: docker build -t registry.alvaro.studentdumbways.my.id/ntx-test/ntx:latest
 
-      # - name: Login to Docker Hub
-      #   run: 
+      - name: Login to Docker Hub
+        run: | 
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login registry.example.com -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          
